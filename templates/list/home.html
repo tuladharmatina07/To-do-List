@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+    body {
+        background-color: rgb(176, 199, 248);
+    }
+    input{
+        width: 100%;
+        padding:12px 20px;
+        margin: 8px auto;
+        box-sizing: border-box;
+    }
+    .center-column{
+        width:600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 3px;
+
+    }
+    .item-row{
+        background-color: cornsilk;
+        margin:10px;
+        padding:20px;
+        border-radius: 3px;
+    }
+</style>
+<div class="container text-center pt-3">
+<h2> This is the list of task</h2>
+</div>
+<div class ="center-column">
+       
+    <form method="POST" action="/" >
+        {% csrf_token %}
+        {{form.title}}
+        <input class ="btn btn-info" type="submit" name ="Create List" placeholder="New Task">
+    </form>
+    <div class="todo-list">
+        {%for task in tasks %}
+            <div class="item-row">
+                <a class="btn btn-sm btn-info" href ={% url 'update_task' task.id %}> Update</a>
+                <a class="btn btn-sm btn-danger" href ={% url 'delete_task' task.id %}> Delete</a>
+                {% if task.complete == True %}
+                <strike>{{task}}</strike>
+                {% else %}
+                {{task.title}}
+                {% endif %}
+                
+            </div>
+        {% endfor%}
+    </div>
+</div>

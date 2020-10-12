@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+    body {
+        background-color: rgb(176, 199, 248);
+    }
+.center-column{
+    margin: 20px auto;
+    width: 600px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 3px;
+}
+input{
+        width: 100%;
+        padding:12px 20px;
+        margin: 8px auto;
+        box-sizing: border-box;
+    }
+</style>
+
+<div class="container text-center pt-3">
+<h2>Update Task</h2>
+</div>
+<div class ="center-column">
+<form method ="POST" action="">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" class="btn btn-info" name ="Update"> 
+
+</form>
+</div>

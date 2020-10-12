@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+    body {
+        background-color: rgb(176, 199, 248);
+    }
+.center-column{
+    margin: 20px auto;
+    width: 600px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 3px;
+}
+input{
+        width: 100%;
+        padding:12px 20px;
+        margin: 8px auto;
+        box-sizing: border-box;
+    }
+    .item-row{
+        background-color: cornsilk;
+        margin:10px;
+        padding:20px;
+        border-radius: 3px;
+    }
+</style>
+<div class="container text-center pt-3">
+<h2> Are you sure you want to delete "{{item}}"?</h2>
+</div>
+<div class ="center-column">
+       
+<!-- <a href=" {%url 'list' %}"> Cancel</a> -->
+
+    <form method="POST" action=""> 
+            <div class="item-row">
+                {% csrf_token %}
+                <input class="btn btn-info" type="button" onclick="window.location.replace('/')" value="Cancel" />
+                <input type="submit" class="btn btn-danger" name ="Confirm"></form>
+            </div>
+
+</div>
